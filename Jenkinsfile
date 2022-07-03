@@ -31,13 +31,13 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts:
             robot outputPath: '.',
             logFileName: 'log/log.html',
             outputFileName: 'log/output.xml',
             reportFileName: 'log/report.hml',
             passThreshold: 100,
             unstableThreshold: 75.0
+            archiveArtifacts artifacts: 'log/log.html'
         }
     }
 }
