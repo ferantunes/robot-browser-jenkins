@@ -30,7 +30,7 @@ pipeline {
                             reportFileName: 'log/report.hml',
                             passThreshold: 100,
                             unstableThreshold: 75.0
-                            archiveArtifacts artifacts: 'log/log.html, log/output.xml, log/report.xml, log/browser'
+                            archiveArtifacts artifacts: 'log/log.html, log/output.xml, log/report.html, log/browser'
                         }
                     }
                 }
