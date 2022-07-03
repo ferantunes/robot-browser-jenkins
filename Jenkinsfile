@@ -31,6 +31,7 @@ pipeline {
     }
     post {
         always {
+            archiveArtifacts artifacts:
             robot outputPath: '.',
             logFileName: 'log/log.html',
             outputFileName: 'log/output.xml',
