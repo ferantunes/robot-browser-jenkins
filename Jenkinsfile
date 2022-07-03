@@ -25,7 +25,7 @@ pipeline {
                 //     bat "pabot --processes 6 -d logs\\log-${BUILD_NUMBER} -v AMBIENTE:hml -v BROWSER:chrome tests\\gar\\*.robot"
                 // }
 
-                sh ls
+                sh 'ls'
             }
         }
     }
