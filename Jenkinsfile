@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'win' }
 
+    environment {
+        JENKINS_OPTS="hudson.model.DirectoryBrowserSupport.CSP="
+    }
+
     stages {
         stage("Robot Framework") {
             parallel {
