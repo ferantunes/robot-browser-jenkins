@@ -32,9 +32,9 @@ pipeline {
     post {
         always {
             robot outputPath: '.',
-            logFileName: 'log.html',
-            outputFileName: 'output.xml',
-            reportFileName: 'report.hml',
+            logFileName: 'log/log.html',
+            outputFileName: 'log/output.xml',
+            reportFileName: 'log/report.hml',
             passThreshold: 100,
             unstableThreshold: 75.0
         }
