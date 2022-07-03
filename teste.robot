@@ -3,6 +3,7 @@ Library   Browser
 
 *** Test Cases ***
 Example Test
+    New Browser    firefox
     New Page    https://playwright.dev
     Browser.Take Screenshot
     Get Text    h1    contains    Playwright
