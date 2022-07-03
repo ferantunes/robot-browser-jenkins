@@ -27,7 +27,7 @@ pipeline {
 
                 sh 'robot -d log -v BROWSER:chromium teste.robot'
             }
-        },
+        }
         stage('Firefox') {
             // agent { label 'windows10' }
             steps {
