@@ -3,6 +3,8 @@ Library   Browser
 
 *** Test Cases ***
 Example Test
+    Log Variables
+    New Browser    ${BROWSER}
     New Page    https://playwright.dev
     Get Browser Catalog
     Get Browser Ids
