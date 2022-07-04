@@ -15,6 +15,12 @@ pipeline {
           steps {
             sh 'robot -d log -v BROWSER:webkit teste.robot'
           }
+          post {
+            always {
+              robot(outputPath: '.', logFileName: 'log/log.html', outputFileName: 'log/output.xml', reportFileName: 'log/report.hml', passThreshold: 100, unstableThreshold: 75)
+              archiveArtifacts 'log/log.html, log/output.xml, log/report.html, log/browser'
+            }
+          }
         }
 
         stage('Firefox') {
@@ -26,7 +32,6 @@ pipeline {
               robot(outputPath: '.', logFileName: 'log/log.html', outputFileName: 'log/output.xml', reportFileName: 'log/report.hml', passThreshold: 100, unstableThreshold: 75)
               archiveArtifacts 'log/log.html, log/output.xml, log/report.html, log/browser'
             }
-
           }
         }
 
