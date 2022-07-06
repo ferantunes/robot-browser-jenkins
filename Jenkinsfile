@@ -37,7 +37,9 @@ pipeline {
     }
 
   }
-  environment {
-    JENKINS_OPTS = 'hudson.model.DirectoryBrowserSupport.CSP=""'
+  post {
+    always {
+      influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: '', selectedTarget: 'robot-framework'
+    }
   }
 }
