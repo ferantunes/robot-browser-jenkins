@@ -37,9 +37,4 @@ pipeline {
     }
 
   }
-  post {
-    always {
-      influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: '', selectedTarget: 'robot-framework'
-    }
-  }
 }
