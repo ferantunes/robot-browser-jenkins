@@ -11,7 +11,7 @@ Example Test
     Take Screenshot    fullPage=True
     Get Text    h1    contains    Playwright
     Click    css=a.getStarted_Sjon
-    Get Text    css=header h1    equal    Getting started
+    Get Text    css=header h1    equal    Installation
     Mouse Move Relative To    css=div.navbar__items:first-child div:nth-child(6)
     Mouse Move Relative To    css=div.navbar__items:first-child div:nth-child(6) a[href="/docs/intro"]
     Wait For Elements State    css=div.navbar__items:first-child div:nth-child(6) a[href="/docs/intro"]
