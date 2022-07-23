@@ -28,6 +28,7 @@ pipeline {
           steps {
             sh 'robot -d log -v BROWSER:firefox teste.robot'
             archiveArtifacts 'log/log.html'
+            sh 'print \'Oi\''
           }
         }
 
