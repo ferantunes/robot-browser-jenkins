@@ -30,12 +30,12 @@ pipeline {
           }
         }
 
-        stage('Teste') {
-          steps {
-            archiveArtifacts 'log.html'
-          }
-        }
+      }
+    }
 
+    stage('') {
+      steps {
+        archiveArtifacts 'log/log.html'
       }
     }
 
