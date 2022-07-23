@@ -32,7 +32,7 @@ pipeline {
 
         stage('Teste') {
           steps {
-            archiveArtifacts 'log/log.html'
+            archiveArtifacts 'robot-browser-jenkins_main/log/log.html'
           }
         }
 
