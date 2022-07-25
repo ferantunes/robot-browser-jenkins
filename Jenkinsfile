@@ -40,7 +40,7 @@ pipeline {
         }
 
         stage('post') {
-          step([$class: 'InfluxDbPublisher', selectedTarget: 'jenkins'])
+          steps([$class: 'InfluxDbPublisher', selectedTarget: 'jenkins'])
         }
       }
     }
