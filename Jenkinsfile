@@ -3,6 +3,13 @@ pipeline {
     label 'win'
   }
   stages {
+    stage('Checkout external proj') {
+        steps {
+            git branch: 'main',
+                credentialsId: 'github',
+                url: 'https://github.com/ferantunes/robot-browser-jenkins.git'
+        }
+    }
     stage('Robot Framework') {
       parallel {
         stage('Edge') {
