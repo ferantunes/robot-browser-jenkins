@@ -46,9 +46,9 @@ pipeline {
           }
         }
 
-        stage('post') {
-          steps([$class: 'InfluxDbPublisher', selectedTarget: 'jenkins'])
-        }
+        // stage('post') {
+        //   steps([$class: 'InfluxDbPublisher', selectedTarget: 'jenkins'])
+        // }
       }
     }
 
