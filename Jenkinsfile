@@ -8,7 +8,7 @@ pipeline{
                 stage("A"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log -v BROWSER:chromium teste.robot
+                        sh 'robot -d log -v BROWSER:chromium teste.robot'
                     }
                     post{
                         always{
