@@ -3,22 +3,24 @@ pipeline{
         label "node"
     }
     stages{
-        stage("A"){
+        stage("Robot"){
             parallel{
-                steps{
-                    echo "========executing A========"
-                    sh 'robot -d log -v BROWSER:chromium teste.robot'
-                }
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
+                stage("A"){
+                    steps{
+                        echo "========executing A========"
+                        sh 'robot -d log -v BROWSER:chromium teste.robot
+                    }
+                    post{
+                        always{
+                            echo "========always========"
+                        }
+                        success{
+                            echo "========A executed successfully========"
+                        }
+                        failure{
+                            echo "========A execution failed========"
+                        }
+                    }
                 }
             }
         }
