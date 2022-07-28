@@ -1,13 +1,14 @@
 pipeline{
     agent{
-        label "win"
+        label "node"
     }
-    parallel {
-      stages{
+    stages{
         stage("A"){
-            steps{
-                echo "========executing A========"
-                sh 'robot -d log -v BROWSER:chromium teste.robot'
+            parallel{
+                steps{
+                    echo "========executing A========"
+                    sh 'robot -d log -v BROWSER:chromium teste.robot'
+                }
             }
             post{
                 always{
@@ -21,9 +22,7 @@ pipeline{
                 }
             }
         }
-      }
     }
-    
     post{
         always{
             echo "========always========"
