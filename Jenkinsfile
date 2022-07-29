@@ -20,7 +20,7 @@ pipeline{
                             passThreshold: 100,
                             unstableThreshold: 75)
 
-                            // archiveArtifacts 'log/chrome/log.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
+                            archiveArtifacts 'log/chrome/log_chrome.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
