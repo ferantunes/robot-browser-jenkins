@@ -2,7 +2,7 @@
 Library   Browser
 
 *** Test Cases ***
-Example Test
+Teste 01
     Log Variables
     # New Browser    ${BROWSER}
     New Page    https://playwright.dev
@@ -17,4 +17,22 @@ Example Test
     # Wait For Elements State    css=div.navbar__items:first-child div:nth-child(6) a[href="/docs/intro"]
     # Click    css=div.navbar__items:first-child div:nth-child(6) a[href="/python/docs/intro"]
     # Get Text    css=h3[id="pip"]    contains    Pip
+    Take Screenshot    fullPage=True
+
+Teste 02
+    Log Variables
+    New Page    https://playwright.dev
+    Get Browser Catalog
+    Get Browser Ids
+    Take Screenshot    fullPage=True
+    Get Text    h1    contains    Playwright
+    Take Screenshot    fullPage=True
+
+Teste 03
+    Log Variables
+    New Page    https://playwright.dev
+    Get Browser Catalog
+    Get Browser Ids
+    Take Screenshot    fullPage=True
+    Get Text    h1    contains    Playwright
     Take Screenshot    fullPage=True
