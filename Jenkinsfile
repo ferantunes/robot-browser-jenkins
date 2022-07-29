@@ -37,7 +37,7 @@ pipeline{
 
                             archiveArtifacts 'log/chrome/log_chrome.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
 
-                            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+                            // step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
                         success{
                             echo "========A executed successfully========"
@@ -64,7 +64,7 @@ pipeline{
 
                             archiveArtifacts 'log/safari/log_safari.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
 
-                            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+                            // step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
                         success{
                             echo "========A executed successfully========"
@@ -91,7 +91,7 @@ pipeline{
 
                             archiveArtifacts 'log/firefox/log_firefox.html, log/firefox/output.xml, log/firefox/report.html, log/firefox/browser/screenshot'
 
-                            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+                            // step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
                         success{
                             echo "========A executed successfully========"
@@ -113,7 +113,7 @@ pipeline{
             //     reportFileName: 'log/chrome/report.hml',
             //     passThreshold: 100,
             //     unstableThreshold: 75)
-            // step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
         }
         success{
             echo "========pipeline executed successfully ========"
