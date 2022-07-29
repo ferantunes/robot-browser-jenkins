@@ -47,7 +47,7 @@ pipeline{
                             passThreshold: 100,
                             unstableThreshold: 75)
 
-                            archiveArtifacts 'log/safari/log.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
+                            archiveArtifacts 'log/safari/log_safari.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
