@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("Robot"){
             parallel{
-                stage("A"){
+                stage("Chrome"){
                     steps{
                         echo "========executing A========"
                         sh 'robot -d log/chrome --log log_chrome.html -v BROWSER:chromium teste.robot'
@@ -32,10 +32,10 @@ pipeline{
                         }
                     }
                 }
-                 stage("B"){
+                stage("Safari"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/safari --log log_safari.html -v BROWSER:firefox teste.robot'
+                        sh 'robot -d log/safari --log log_safari.html -v BROWSER:webkit teste.robot'
                     }
                     post{
                         always{
@@ -48,6 +48,33 @@ pipeline{
                             unstableThreshold: 75)
 
                             archiveArtifacts 'log/safari/log_safari.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
+
+                            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+                        }
+                        success{
+                            echo "========A executed successfully========"
+                        }
+                        failure{
+                            echo "========A execution failed========"
+                        }
+                    }
+                }
+                stage("Firefox"){
+                    steps{
+                        echo "========executing A========"
+                        sh 'robot -d log/safari --log log_firefox.html -v BROWSER:firefox teste.robot'
+                    }
+                    post{
+                        always{
+                            echo "========always========"
+                            robot(outputPath: '.',
+                            logFileName: 'log/safari/log_firefox.html',
+                            outputFileName: 'log/safari/output.xml',
+                            reportFileName: 'log/safari/report.hml',
+                            passThreshold: 100,
+                            unstableThreshold: 75)
+
+                            archiveArtifacts 'log/safari/log_firefox.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
