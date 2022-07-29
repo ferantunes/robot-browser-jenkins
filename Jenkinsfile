@@ -20,7 +20,7 @@ pipeline{
                             passThreshold: 100,
                             unstableThreshold: 75)
 
-                            archiveArtifacts 'log/chrome/log.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
+                            // archiveArtifacts 'log/chrome/log.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
@@ -35,7 +35,7 @@ pipeline{
                  stage("B"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/safari -v BROWSER:firefox teste.robot'
+                        sh 'robot -d log/safari --reporttitle log_safari -v BROWSER:firefox teste.robot'
                     }
                     post{
                         always{
