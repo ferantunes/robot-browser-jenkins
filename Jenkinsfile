@@ -28,6 +28,7 @@ pipeline{
     post{
         always{
             echo "========always========"
+            step([$class: 'InfluxDbPublisher', selectedTarget: 'jenkins'])
         }
         success{
             echo "========pipeline executed successfully ========"
