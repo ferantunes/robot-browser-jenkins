@@ -3,6 +3,21 @@ pipeline{
         label "win"
     }
     stages{
+        stage("Build"){
+            steps{
+                echo "========BUILD DO PROJETO========"
+            }
+        }
+        stage("SonarQube"){
+            steps{
+                echo "========SONARQUBE========"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "========DEPLOY DA APLICAÇÃO========"
+            }
+        }
         stage("Robot"){
             parallel{
                 stage("Chrome"){
