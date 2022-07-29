@@ -34,5 +34,5 @@ Teste 03
     Get Browser Catalog
     Get Browser Ids
     Take Screenshot    fullPage=True
-    Get Text    h1    contains    Playwright
+    Get Text    h1    contains    Playwrigh
     Take Screenshot    fullPage=True
