@@ -35,7 +35,7 @@ pipeline{
                  stage("B"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/safari --reporttitle log_safari -v BROWSER:firefox teste.robot'
+                        sh 'robot -d log/safari --log log_safari -v BROWSER:firefox teste.robot'
                     }
                     post{
                         always{
