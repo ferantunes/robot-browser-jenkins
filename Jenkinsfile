@@ -74,7 +74,7 @@ pipeline{
                             passThreshold: 100,
                             unstableThreshold: 75)
 
-                            archiveArtifacts 'log/firefox/log_firefox.html, log/firefox/output.xml, log/firefox/report.html, log/firefox/browser'
+                            archiveArtifacts 'log/firefox/log_firefox.html, log/firefox/output.xml, log/firefox/report.html, log/firefox/browser/screenshot'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
