@@ -19,6 +19,9 @@ pipeline{
                             reportFileName: 'log/chrome/report.hml',
                             passThreshold: 100,
                             unstableThreshold: 75)
+
+                            archiveArtifacts 'log/chrome/log.html, log/chrome/output.xml, log/chrome/report.html, log/chrome/browser'
+
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
                         success{
@@ -43,6 +46,9 @@ pipeline{
                             reportFileName: 'log/safari/report.hml',
                             passThreshold: 100,
                             unstableThreshold: 75)
+
+                            archiveArtifacts 'log/safari/log.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
+
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
                         success{
