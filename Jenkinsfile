@@ -8,13 +8,13 @@ pipeline{
                 stage("A"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/chrome -v BROWSER:chromium teste.robot'
+                        sh 'robot -d log/chrome --log log_chrome.html -v BROWSER:chromium teste.robot'
                     }
                     post{
                         always{
                             echo "========always========"
                             robot(outputPath: '.',
-                            logFileName: 'log/chrome/log.html',
+                            logFileName: 'log/chrome/log_chrome.html',
                             outputFileName: 'log/chrome/output.xml',
                             reportFileName: 'log/chrome/report.hml',
                             passThreshold: 100,
@@ -35,13 +35,13 @@ pipeline{
                  stage("B"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/safari --log log_safari -v BROWSER:firefox teste.robot'
+                        sh 'robot -d log/safari --log log_safari.html -v BROWSER:firefox teste.robot'
                     }
                     post{
                         always{
                             echo "========always========"
                             robot(outputPath: '.',
-                            logFileName: 'log/safari/log.html',
+                            logFileName: 'log/safari/log_safari.html',
                             outputFileName: 'log/safari/output.xml',
                             reportFileName: 'log/safari/report.hml',
                             passThreshold: 100,
