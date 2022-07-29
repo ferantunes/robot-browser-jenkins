@@ -29,6 +29,30 @@ pipeline{
                         }
                     }
                 }
+                 stage("B"){
+                    steps{
+                        echo "========executing A========"
+                        sh 'robot -d log/safari -v BROWSER:webkit teste.robot'
+                    }
+                    post{
+                        always{
+                            echo "========always========"
+                            robot(outputPath: '.',
+                            logFileName: 'log/safari/log.html',
+                            outputFileName: 'log/safari/output.xml',
+                            reportFileName: 'log/safari/report.hml',
+                            passThreshold: 100,
+                            unstableThreshold: 75)
+                            step([$class: 'InfluxDbPublisher', target: 'jenkins'])
+                        }
+                        success{
+                            echo "========A executed successfully========"
+                        }
+                        failure{
+                            echo "========A execution failed========"
+                        }
+                    }
+                }
             }
         }
     }
