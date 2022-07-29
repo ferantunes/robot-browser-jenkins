@@ -62,19 +62,19 @@ pipeline{
                 stage("Firefox"){
                     steps{
                         echo "========executing A========"
-                        sh 'robot -d log/safari --log log_firefox.html -v BROWSER:firefox teste.robot'
+                        sh 'robot -d log/firefox --log log_firefox.html -v BROWSER:firefox teste.robot'
                     }
                     post{
                         always{
                             echo "========always========"
                             robot(outputPath: '.',
-                            logFileName: 'log/safari/log_firefox.html',
-                            outputFileName: 'log/safari/output.xml',
-                            reportFileName: 'log/safari/report.hml',
+                            logFileName: 'log/firefox/log_firefox.html',
+                            outputFileName: 'log/firefox/output.xml',
+                            reportFileName: 'log/firefox/report.hml',
                             passThreshold: 100,
                             unstableThreshold: 75)
 
-                            archiveArtifacts 'log/safari/log_firefox.html, log/safari/output.xml, log/safari/report.html, log/safari/browser'
+                            archiveArtifacts 'log/firefox/log_firefox.html, log/firefox/output.xml, log/firefox/report.html, log/firefox/browser'
 
                             step([$class: 'InfluxDbPublisher', target: 'jenkins'])
                         }
