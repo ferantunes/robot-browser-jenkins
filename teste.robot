@@ -20,7 +20,7 @@ Teste 01
     Take Screenshot    fullPage=True
 
 Teste 02
-    IF    ${BROWSER} == Safari
+    IF    ${BROWSER} == webkit
         Log    False
     ELSE
         Log Variables
