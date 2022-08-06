@@ -20,13 +20,18 @@ Teste 01
     Take Screenshot    fullPage=True
 
 Teste 02
-    Log Variables
-    New Page    https://playwright.dev
-    Get Browser Catalog
-    Get Browser Ids
-    Take Screenshot    fullPage=True
-    Get Text    h1    contains    Playwright
-    Take Screenshot    fullPage=True
+    IF    ${BROWSER} == Safari
+        Log    False
+    ELSE
+        Log Variables
+        New Page    https://playwright.dev
+        Get Browser Catalog
+        Get Browser Ids
+        Take Screenshot    fullPage=True
+        Get Text    h1    contains    Playwright
+        Take Screenshot    fullPage=True        
+    END
+
 
 Teste 03
     Log Variables
